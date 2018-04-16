@@ -394,14 +394,14 @@ document.addEventListener('DOMContentLoaded', function() {
         str = str.replace(",", "/");
         Cost = Cost.replace(",", "/");
         if (lineindex%2) {
-          result.insertAdjacentHTML('afterend', "<div class='columns col-gapless'><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary'>" + Cost + "</div><div class='column col-4 bg-secondary'>" + Extension + "</div></div>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary'>" + Cost + "</div><div class='column col-4 bg-secondary'>" + Extension + "</div></div></h2>");
         }
         else{
-          result.insertAdjacentHTML('afterend', "<div class='columns col-gapless'><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray'>" + Cost + "</div><div class='column col-4 bg-gray'>" + Extension + "</div></d  iv>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray'>" + Cost + "</div><div class='column col-4 bg-gray'>" + Extension + "</div></div></h2>");
         }
         lineindex++
       }
-      result.insertAdjacentHTML('afterend', "<div class='columns col-gapless'><div class='column col-6 bg-primary text-light'>カード</div><div class='column col-2 bg-primary text-light'>コスト</div><div class='column col-4 bg-primary text-light'>拡張セット</div></div>");
+      result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-6 bg-primary text-light'>カード</div><div class='column col-2 bg-primary text-light'>コスト</div><div class='column col-4 bg-primary text-light'>拡張セット</div></div></h2>" );
 
       //for (var i = 0, len = pickupIndex.length; i < len; i++){      }
     //}
