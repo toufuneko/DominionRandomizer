@@ -354,8 +354,123 @@ var Hanei = {
     },
   ]
 };
+var Kihon2 = {
+  "ExtensionName":"基本2nd",
+  "Cards": [
+    {
+      "Name":["地下貯蔵庫"],
+      "Cost":[2]
+    },
+    {
+      "Name":["礼拝堂"],
+      "Cost":[2]
+    },
+    {
+      "Name":["堀"],
+      "Cost":[2]
+    },
+    {
+      "Name":["家臣"],
+      "Cost":[3]
+    },
+    {
+      "Name":["工房"],
+      "Cost":[3]
+    },
+
+    {
+      "Name":["商人"],
+      "Cost":[3]
+    },
+    {
+      "Name":["前駆者"],
+      "Cost":[3]
+    },
+    {
+      "Name":["村"],
+      "Cost":[3]
+    },
+    {
+      "Name":["改築"],
+      "Cost":[4]
+    },
+    {
+      "Name":["鍛冶屋"],
+      "Cost":[4]
+    },
+    {
+      "Name":["金貸し"],
+      "Cost":[4]
+    },
+    {
+      "Name":["玉座の間"],
+      "Cost":[4]
+    },
+    {
+      "Name":["密猟者"],
+      "Cost":[4]
+    },
+    {
+      "Name":["民兵"],
+      "Cost":[4]
+    },
+
+    {
+      "Name":["役人"],
+      "Cost":[4]
+    },
+
+    {
+      "Name":["庭園"],
+      "Cost":[4]
+    },
+    {
+      "Name":["市場"],
+      "Cost":[5]
+    },
+    {
+      "Name":["衛兵"],
+      "Cost":[5]
+    },
+
+    {
+      "Name":["議事堂"],
+      "Cost":[5]
+    },
+    {
+      "Name":["研究所"],
+      "Cost":[5]
+    },
+    {
+      "Name":["鉱山"],
+      "Cost":[5]
+    },
+
+    {
+      "Name":["祝祭"],
+      "Cost":[5]
+    },
+    {
+      "Name":["書庫"],
+      "Cost":[5]
+    },
+
+    {
+      "Name":["山賊"],
+      "Cost":[5]
+    },
+    {
+      "Name":["魔女"],
+      "Cost":[5]
+    },
+    {
+      "Name":["職人"],
+      "Cost":[6]
+    },
+  ]
+};
 //カードリスト終了
-var ExtensionList = {Teikoku:Teikoku, Ankoku:Ankoku, Hanei:Hanei};
+var ExtensionList = {Teikoku:Teikoku, Ankoku:Ankoku, Hanei:Hanei, Kihon2:Kihon2};
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn').addEventListener('click', function() {
     var SelectExtensions = [];
@@ -391,13 +506,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var Cost = selectCards[i][1].toString();
         var Extension = selectCards[i][2];
         console.log(str);
-        str = str.replace(",", "/");
-        Cost = Cost.replace(",", "/");
+        str = str.replace(",", " / ");
+        Cost = Cost.replace(",", " / ");
         if (lineindex%2) {
-          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary'>" + Cost + "</div><div class='column col-4 bg-secondary'>" + Extension + "</div></div></h2>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary'>" + Cost + "</div><div class='column col-4 bg-secondary'>" + Extension + "</div></div></h2>");
         }
         else{
-          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray'>" + Cost + "</div><div class='column col-4 bg-gray'>" + Extension + "</div></div></h2>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray'>" + Cost + "</div><div class='column col-4 bg-gray'>" + Extension + "</div></div></h2>");
         }
         lineindex++
       }
