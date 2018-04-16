@@ -508,15 +508,16 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(str);
         str = str.replace(",", " / ");
         Cost = Cost.replace(",", " / ");
+        Extension = Extension.replace("2nd", "<sub>2nd</sub>")
         if (lineindex%2) {
-          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary'>" + Cost + "</div><div class='column col-4 bg-secondary'>" + Extension + "</div></div></h2>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-1 bg-secondary'></div><div class='column col-6 bg-secondary'>"+ str + "</div><div class='column col-2 bg-secondary text-center'>" + Cost + "</div><div class='column col-3 bg-secondary text-center'>" + Extension + "</div></div></h2>");
         }
         else{
-          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray'>" + Cost + "</div><div class='column col-4 bg-gray'>" + Extension + "</div></div></h2>");
+          result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless text-large'><div class='column col-1 bg-gray'></div><div class='column col-6 bg-gray'>"+ str + "</div><div class='column col-2 bg-gray text-center'>" + Cost + "</div><div class='column col-3 bg-gray text-center'>" + Extension + "</div></div></h2>");
         }
         lineindex++
       }
-      result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-6 bg-primary text-light'>カード</div><div class='column col-2 bg-primary text-light'>コスト</div><div class='column col-4 bg-primary text-light'>拡張セット</div></div></h2>" );
+      result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-1 bg-primary'></div><div class='column col-6 bg-primary text-light'>カード</div><div class='column col-2 bg-primary text-light text-center'>コスト</div><div class='column col-3 bg-primary text-light text-center'>拡張セット</div></div></h2>" );
 
       //for (var i = 0, len = pickupIndex.length; i < len; i++){      }
     //}
