@@ -354,6 +354,7 @@ var Hanei = {
     },
   ]
 };
+//基本 第二版
 var Kihon2 = {
   "ExtensionName":"基本2nd",
   "Cards": [
@@ -469,8 +470,114 @@ var Kihon2 = {
     },
   ]
 };
+//陰謀
+var Inbou = {
+  "ExtensionName":"陰謀",
+  "Cards": [
+    {
+      "Name":["手先"],
+      "Cost":[2]
+    },
+    {
+      "Name":["中庭"],
+      "Cost":[2]
+    },
+    {
+      "Name":["秘密の部屋"],
+      "Cost":[2]
+    },
+    {
+      "Name":["仮面舞踏会"],
+      "Cost":[3]
+    },
+    {
+      "Name":["執事"],
+      "Cost":[3]
+    },
+    {
+      "Name":["願いの井戸"],
+      "Cost":[3]
+    },
+    {
+      "Name":["貧民街"],
+      "Cost":[3]
+    },
+    {
+      "Name":["詐欺師"],
+      "Cost":[3]
+    },
+    {
+      "Name":["大広間"],
+      "Cost":[3]
+    },
+    {
+      "Name":["共謀者"],
+      "Cost":[4]
+    },
+    {
+      "Name":["鉱山の村"],
+      "Cost":[4]
+    },
+    {
+      "Name":["男爵"],
+      "Cost":[4]
+    },
+    {
+      "Name":["偵察員"],
+      "Cost":[4]
+    },
+    {
+      "Name":["鉄工所"],
+      "Cost":[4]
+    },
+    {
+      "Name":["銅細工師"],
+      "Cost":[4]
+    },
+    {
+      "Name":["橋"],
+      "Cost":[4]
+    },
+    {
+      "Name":["改良"],
+      "Cost":[5]
+    },
+    {
+      "Name":["交易場"],
+      "Cost":[5]
+    },
+    {
+      "Name":["貢物"],
+      "Cost":[5]
+    },
+    {
+      "Name":["拷問人"],
+      "Cost":[5]
+    },
+    {
+      "Name":["寵臣"],
+      "Cost":[5]
+    },
+    {
+      "Name":["破壊工作員"],
+      "Cost":[5]
+    },
+    {
+      "Name":["公爵"],
+      "Cost":[5]
+    },
+    {
+      "Name":["貴族"],
+      "Cost":[6]
+    },
+    {
+      "Name":["ハーレム"],
+      "Cost":[6]
+    },
+  ]
+};
 //カードリスト終了
-var ExtensionList = {Teikoku:Teikoku, Ankoku:Ankoku, Hanei:Hanei, Kihon2:Kihon2};
+var ExtensionList = {Kihon2:Kihon2, Inbou:Inbou, Ankoku:Ankoku, Hanei:Hanei, Teikoku:Teikoku};
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn').addEventListener('click', function() {
     var SelectExtensions = [];
@@ -482,26 +589,29 @@ document.addEventListener('DOMContentLoaded', function() {
       if (extension.checked) {
         SelectExtensions.push(extension.value)}
     }
-    //console.log(SelectExtensions.toString());
-    //console.log(ExtensionList[SelectExtensions.toString()]);
     for (var i = 0, len = SelectExtensions.length; i < len; i++){
-      //console.log(ExtensionList[SelectExtensions[i]].ExtensionName);
           for (var j = 0, len2 = ExtensionList[SelectExtensions[i]].Cards.length; j < len2; j++){
             selectCards.push([ExtensionList[SelectExtensions[i]].Cards[j].Name, ExtensionList[SelectExtensions[i]].Cards[j].Cost, ExtensionList[SelectExtensions[i]].ExtensionName]);
-            //console.log("拡張セット： "　+ ExtensionList[SelectExtensions[i]].ExtensionName);
           }
       }
       console.log(selectCards.length);
       var cardCount = selectCards.length;
-      let pickupIndex = new Set();
-      while(pickupIndex.size  <= 9){
-        pickupIndex.add(Math.floor(Math.random()*cardCount));
+      var pickupIndex = [];
+      while(pickupIndex.length <= 9){
+        var ints = Math.floor(Math.random()*cardCount);
+        console.log(ints);
+        if (pickupIndex.indexOf(ints) == -1){
+          pickupIndex.push(ints);
+        }
       }
+      pickupIndex.sort(function(i,j){
+        if( i > j ) return -1;
+        if( i < j ) return 1;
+        return 0;
+      });
       console.log(pickupIndex);
       var lineindex = 1
-
-      for (var i of pickupIndex.values()){
-        //console.log(selectCards[i][2]);
+        for (var i of pickupIndex){
         var str = selectCards[i][0].toString();
         var Cost = selectCards[i][1].toString();
         var Extension = selectCards[i][2];
@@ -518,18 +628,5 @@ document.addEventListener('DOMContentLoaded', function() {
         lineindex++
       }
       result.insertAdjacentHTML('afterend', "<h2><div class='columns col-gapless'><div class='column col-1 bg-primary'></div><div class='column col-6 bg-primary text-light'>カード</div><div class='column col-2 bg-primary text-light text-center'>コスト</div><div class='column col-2 bg-primary text-light text-center'>拡張セット</div><div class='column col-1 bg-primary'></div></div></h2>" );
-
-      //for (var i = 0, len = pickupIndex.length; i < len; i++){      }
-    //}
   }, false);
 }, false);
-
-
-/*
-var cardCount = 25;
-let pickupIndex = new Set();
-while(pickupIndex.size  <= 9){
-  pickupIndex.add(Math.floor(Math.random()*cardCount));
-}
-console.log(pickupIndex);
-*/
